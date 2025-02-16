@@ -45,50 +45,50 @@ const WeatherData = ({
         </ul>
       </div>
 
-      {/* <ul className="data-time">
-            {data.hourly.time.slice(0, 24).map((item, index) => {
-            if (index % 3 === 0) {
-                return (
-                <li key={index} className="time">
-                    {item.toString().slice(11)}
-                </li>
-                );
-            }
-            })}
-        </ul>
-        <ul className="data-temp">
-            {data.hourly.temperature_2m.slice(0, 24).map((item, index) => {
-            if (index % 3 === 0) {
-                return (
-                <li key={index} className="temp">
-                    {item.toString()}
-                </li>
-                );
-            }
-            })}
-        </ul>
-        <ul className="data-apptemp">
-            {data.hourly.apparent_temperature.slice(0, 24).map((item, index) => {
-            if (index % 3 === 0) {
-                return (
-                <li key={index} className="apptemp">
-                    {item.toString()}
-                </li>
-                );
-            }
-            })}
-        </ul>
-        <ul className="data-wind">
-            {data.hourly.wind_speed_10m.slice(0, 24).map((item, index) => {
-            if (index % 3 === 0) {
-                return (
-                <li key={index} className="wind">
-                    {item.toString()}
-                </li>
-                );
-            }
-            })}
-        </ul> */}
+      <ul className="data-time">
+        {data.hourly.time.slice(0, 24).map((item, index) => {
+          if (index % 3 === 0) {
+            return (
+              <li key={index} className="time">
+                {item.toString().slice(11)}
+              </li>
+            );
+          }
+        })}
+      </ul>
+      <ul className="data-temp">
+        {data.hourly.temperature_2m.slice(0, 24).map((item, index) => {
+          if (index % 3 === 0) {
+            return (
+              <li key={index} className="temp">
+                {item.toString()}
+              </li>
+            );
+          }
+        })}
+      </ul>
+      <ul className="data-apptemp">
+        {data.hourly.apparent_temperature.slice(0, 24).map((item, index) => {
+          if (index % 3 === 0) {
+            return (
+              <li key={index} className="apptemp">
+                {item.toString()}
+              </li>
+            );
+          }
+        })}
+      </ul>
+      <ul className="data-wind">
+        {data.hourly.wind_speed_10m.slice(0, 24).map((item, index) => {
+          if (index % 3 === 0) {
+            return (
+              <li key={index} className="wind">
+                {item.toString()}
+              </li>
+            );
+          }
+        })}
+      </ul>
     </div>
   );
 };

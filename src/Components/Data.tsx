@@ -5,8 +5,6 @@ import axios from "axios";
 import WeatherData from "./WeatherData";
 import Loading from "./Loading";
 
-// const weatherUrl: string = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,cloud_cover,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,cloud_cover,visibility,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,wind_speed_10m_max&timezone=auto`;
-
 const Data = ({
   locations,
   coordinates,

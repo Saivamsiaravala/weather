@@ -64,5 +64,3 @@ const Landing = () => {
 };
 
 export default Landing;
-
-// const geoCodeUrl = `https://geocode.maps.co/search?q=${tempLocationName}&api_key=67598cde2db1c304120834oud7acfa6`;

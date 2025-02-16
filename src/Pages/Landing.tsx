@@ -4,7 +4,6 @@ import axios from "axios";
 import { Location, CoordinatesType } from "../Types";
 import Data from "../Components/Data";
 // import { Link } from "react-router";
-const apiURL = import.meta.env.VITE_GEO_CODE_APIKEY;
 
 const Landing = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -15,7 +14,9 @@ const Landing = () => {
     event?.preventDefault();
     const fetchCoordinates = async () => {
       const response = await axios.get(
-        `https://geocode.maps.co/search?q=${searchTerm}&api_key=${apiURL}`
+        `https://geocode.maps.co/search?q=${searchTerm}&api_key=${
+          import.meta.env.VITE_GEOCODE_API_KEY
+        }`
       );
       // console.log(response);
       // if (response.status === 200) {

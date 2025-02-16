@@ -1,0 +1,404 @@
+$colors: (
+  textColor1: rgb(130, 115, 118),
+  textColor2: rgba(3, 3, 20, 0),
+  whiteColor: white,
+  blackColor: black,
+  backGroundColor1: rgb(202, 147, 197),
+  backGroundColor2: white,
+  backgroundColor3: -webkit-linear-gradient(to bottom, #0f2027, #203a43, #2c5364),
+);
+
+$font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+$font2: "Times New Roman", Times, serif;
+$fontSize: "x-small";
+$fontSize1: "smaller";
+$fontSize2: "small";
+$fontSize3: "medium";
+
+$fontWeight1: 600;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+@function margin($margin-name) {
+  @return map-get($margins, $margin-name);
+}
+@function padding($padding-name) {
+  @return map-get($paddings, $padding-name);
+}
+
+$desktop: 720px;
+
+@mixin desktop {
+  @media (min-width:#{$desktop}) {
+    @content;
+  }
+}
+
+$paddings: (
+  padding1: 2px,
+  padding2: 5px,
+  padding3: 7px,
+  padding4: 10px,
+);
+
+$margins: (
+  margin1: 2px,
+  margin2: 5px,
+  margin3: 7px,
+  margin4: 10px,
+);
+
+body {
+  margin: margin(margin2);
+  background-image: url("./../assets/bg-image.jpg");
+}
+
+.title-time {
+  width: 100%;
+  display: flex;
+  height: 70px;
+  h2 {
+    width: 100%;
+    font-size: 40px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+    color: color(black);
+    background-color: color(backGroundColor2);
+    border-radius: 4px;
+    margin: margin(margin2);
+    padding: padding(padding1);
+    .weather-title {
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      .app-title {
+        color: color(blackColor);
+      }
+    }
+
+    @include desktop {
+      color: white;
+      width: 70%;
+    }
+  }
+  .time-date-2 {
+    display: none;
+    @include desktop() {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 30%;
+      background-color: color(backGroundColor2);
+
+      margin: margin(margin2);
+      padding: padding(padding3);
+      border-radius: 4px;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: $fontWeight1;
+  @include desktop() {
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-links {
+    // width: 100px;
+    border-radius: 4px;
+    margin: margin(margin2);
+    background-color: color(backGroundColor2);
+    padding: padding(padding3);
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      @include desktop() {
+        display: flex;
+        flex-direction: row;
+      }
+      .link {
+        text-decoration: none;
+        margin: margin(margin2);
+        .link-span {
+          padding: padding(padding3);
+          color: color(blackColor);
+          font-size: $fontSize1;
+          &:hover {
+            border-radius: 4px;
+            color: color(whiteColor);
+            background-color: color(blackColor);
+          }
+        }
+      }
+    }
+  }
+
+  .time-date-1 {
+    // border: 2px solid blue;
+    width: 100%;
+    margin: margin(margin2);
+    border-radius: 4px;
+    background-color: color(backGroundColor2);
+    @include desktop() {
+      display: none;
+    }
+    h4 {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      .time-date {
+        border: 2px solid black;
+        margin: auto 0;
+      }
+    }
+  }
+}
+
+.landing-page {
+  @include desktop() {
+    display: flex;
+  }
+  .search-form {
+    // border: 2px solid white;
+    font-family: $font;
+    font-weight: 600;
+    @include desktop() {
+      width: 26%;
+      // padding: padding(padding3);
+    }
+
+    .form {
+      border-radius: 4px;
+      padding: padding(padding3);
+      margin: margin(margin2);
+      background-color: color(backGroundColor2);
+      display: flex;
+      flex-direction: row;
+      gap: 0px;
+      justify-content: center;
+      // border: 2px solid black;
+      @include desktop() {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-label {
+        // border: 2px solid black;
+
+        display: flex;
+        text-align: center;
+        gap: 2px;
+        justify-content: center;
+        width: 50%;
+        display: flex;
+        justify-self: center;
+        @include desktop() {
+          width: 100%;
+        }
+      }
+      .form-input {
+        // border: 2px solid black;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 2px;
+        .input {
+          width: 100%;
+          @include desktop() {
+            width: 80%;
+          }
+        }
+        .search-icon {
+          .search-icon-btn {
+            font-size: 15px;
+            height: 100%;
+            @include desktop() {
+              width: 100%;
+            }
+          }
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+  .data-panel {
+    // margin: margin(margin2);
+    // height: 40px;
+    display: flex;
+    font-family: $font;
+    font-weight: 600;
+    font-size: $fontSize;
+    @include desktop() {
+      display: none;
+    }
+    .data {
+      width: 100%;
+      display: flex;
+      .locations {
+        display: none;
+        @include desktop {
+          width: 25%;
+          padding: padding(padding3);
+          margin: margin(margin2);
+          border-radius: 4px;
+          display: flex;
+          background-color: color(backGroundColor2);
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            li {
+              list-style: decimal;
+            }
+          }
+        }
+      }
+      .data-div {
+        padding: padding(padding3);
+        margin: margin(margin2);
+        border-radius: 4px;
+        display: flex;
+        background-color: color(backGroundColor2);
+        width: 100%;
+        @include desktop() {
+          width: 75%;
+        }
+        .weather-data {
+          font-size: $fontSize1;
+          font-weight: 300;
+          font-family: $font2;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .current-weather {
+            .current-weather-title {
+              font-family: $font;
+              font-weight: 600;
+              text-align: center;
+            }
+            .current-location-name {
+              display: flex;
+              border: 2px solid black;
+              font-family: font;
+              justify-content: center;
+              font-weight: 400;
+            }
+            ul {
+              display: flex;
+              gap: 2px;
+              justify-content: space-evenly;
+              font-family: $font2;
+              li {
+                list-style: none;
+                padding: padding(padding3);
+              }
+            }
+          }
+          // .data-time {
+          //   display: flex;
+          //   justify-self: end;
+          //   width: 100%;
+          //   list-style: none;
+          //   display: flex;
+          //   flex: row;
+          //   justify-content: space-evenly;
+          //   font-family: $font;
+          //   .time {
+          //     display: flex;
+          //     justify-content: center;
+          //     border: 2px solid black;
+          //   }
+          // }
+          // .data-temp {
+          //   display: flex;
+          //   justify-self: end;
+          //   width: 100%;
+          //   list-style: none;
+          //   display: flex;
+          //   flex: row;
+          //   justify-content: space-evenly;
+          //   font-family: $font;
+          //   .temp {
+          //     display: flex;
+          //     justify-content: center;
+          //     border: 2px solid black;
+          //   }
+          // }
+          // .data-apptemp {
+          //   display: flex;
+          //   justify-self: end;
+          //   width: 100%;
+          //   list-style: none;
+          //   display: flex;
+          //   flex: row;
+          //   justify-content: space-evenly;
+          //   font-family: $font;
+          //   .apptemp {
+          //     display: flex;
+          //     justify-content: center;
+          //     border: 2px solid black;
+          //   }
+          // }
+          // .data-wind {
+          //   display: flex;
+          //   justify-self: end;
+          //   width: 100%;
+          //   list-style: none;
+          //   display: flex;
+          //   flex: row;
+          //   justify-content: space-evenly;
+          //   font-family: $font;
+          //   .wind {
+          //     display: flex;
+          //     justify-content: center;
+          //     border: 2px solid black;
+          //   }
+          // }
+        }
+      }
+    }
+  }
+
+  .data-panel2 {
+    display: none;
+    @include desktop {
+      display: flex;
+      flex: column;
+      background-color: color(backGroundColor2);
+      margin: margin(margin2);
+      padding: padding(padding3);
+      border-radius: 4px;
+      .locations {
+        display: none;
+      }
+      .data-div {
+        border: 2px solid black;
+        .weather-data {
+          .current-weather {
+            display: flex;
+            ul {
+              list-style: none;
+
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
